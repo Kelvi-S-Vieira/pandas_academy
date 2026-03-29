@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pandas Academy Pro</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐼</text></svg>">
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-header">
+      <span class="sidebar-logo">🐼</span>
+      <span class="sidebar-brand">Pandas Academy</span>
+      <button id="sidebar-close" class="icon-btn" title="Fechar">✕</button>
+    </div>
+
+    <div class="sidebar-stats">
+      <div class="ss-item">
+        <span class="ss-num" id="sb-xp">0</span>
+        <span class="ss-label">XP</span>
+      </div>
+      <div class="ss-divider"></div>
+      <div class="ss-item">
+        <span class="ss-num" id="sb-streak">0🔥</span>
+        <span class="ss-label">Streak</span>
+      </div>
+      <div class="ss-divider"></div>
+      <div class="ss-item">
+        <span class="ss-num" id="sb-done">0</span>
+        <span class="ss-label">Feitos</span>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav" id="sidebar-nav">
+      <!-- Populated by JS -->
+    </nav>
+
+    <button class="sidebar-reset" onclick="resetProgress()">🗑 Resetar progresso</button>
+  </aside>
+
+  <!-- Mobile overlay -->
+  <div id="overlay" class="overlay"></div>
+
+  <!-- Main wrapper -->
+  <div class="main-wrapper" id="main-wrapper">
+
+    <header class="topbar">
+      <button id="menu-btn" class="icon-btn menu-btn" title="Menu">☰</button>
+      <span id="topbar-level" class="topbar-level">Todos os desafios</span>
+      <div class="topbar-stats">
+        <span id="tb-xp">0 XP</span>
+        <span class="tb-dot">·</span>
+        <span id="tb-streak">Streak 0</span>
+      </div>
+    </header>
+
+    <main class="content">
+      <div id="loading" class="loading-state">
+        <div class="spinner"></div>
+        <span>Carregando desafios...</span>
+      </div>
+      <div id="challenges-grid" class="challenges-grid"></div>
+    </main>
+  </div>
+
+  <!-- Modal -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <div class="modal-header-info">
+          <span class="modal-badge" id="modal-badge"></span>
+          <h2 id="challenge-title"></h2>
+        </div>
+        <button id="close-modal" class="icon-btn">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="modal-section">
+          <p class="section-label">📊 Dataset</p>
+          <pre id="data-preview" class="data-pre"></pre>
+        </div>
+
+        <div class="modal-section task-section">
+          <p class="section-label" style="color:#60a5fa;">🎯 Missão</p>
+          <div id="task-desc" class="task-text"></div>
+          <div id="keywords" class="keywords-tag"></div>
+        </div>
+
+        <div class="modal-section">
+          <p class="section-label">✨ Editor Python</p>
+          <textarea id="code-editor" class="editor"
+            placeholder="# Escreva seu código aqui&#10;# Ctrl+Enter → validar  |  Ctrl+S → exportar"></textarea>
+        </div>
+
+        <pre id="output" class="output-pre"></pre>
+
+        <div class="action-buttons">
+          <button id="run-btn"      class="btn btn-primary">🚀 Validar</button>
+          <button id="solution-btn" class="btn btn-secondary">👁 Solução</button>
+          <button id="export-btn"   class="btn btn-export">💾 Exportar .py</button>
+        </div>
+
+        <div id="challenge-link" class="modal-link">
+          <a href="#" id="challenge-link-a">🚀 Executar no VSCode →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
